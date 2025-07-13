@@ -47,9 +47,27 @@
 <?php require_once $root . '/template/forms/fixedcontact.php';?>
 <?php endif;?>
 
-<?php if (file_exists($root . "/template/forms/mainform.php")): ?>
-<?php require_once $root . '/template/forms/mainform.php';?>
-<?php endif;?>
+<div class="start-project-overlay">
+  <div class="wrapper">
+    <button class="close-btn display-block js-closebutton" aria-label="Закрыть окно">
+      <span></span>
+      <span></span>
+    </button>
+    <div class="container--middle inner">
+      <div class="row justify-center">
+        <div class="col-100 col-xxl-90">
+          <!-- Form title -->
+          <h2 class="h1-inner deco-line lh-1 color-black">Начать проект</h2>
+          <!-- The form -->
+          <?php if (file_exists($root . "/template/forms/mainformapp.php")): ?>
+          <?php require_once $root . '/template/forms/mainformapp.php';?>
+          <?php endif;?>
+          <!-- End Form -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script type="module" crossorigin src="/assets/scripts/main.js"></script>
 
