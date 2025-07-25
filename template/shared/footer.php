@@ -20,16 +20,17 @@
         <ul class="footer-address">
           <li>Московская область</li>
           <li>г. Ивантеевка</li>
-          <li class="visible hidden-md">
-            <a href="tel:+79260522029">+7 (926) 052-20-29</a>
-          </li>
-          <li class="visible hidden-md">
-            <a href="mailto:info@vschetinin.ru">info@vschetinin.ru</a>
-          </li>
-          <li class="mb-25 mb-3--sm mb-0--md fs-20 font-middle">Мост к успеху вашего бизнеса</li>
+          <li class="visible hidden-md"><a href="tel:+79260522029">+7 (926) 052-20-29</a></li>
+          <li class="visible hidden-md"><a href="mailto:info@vschetinin.ru">info@vschetinin.ru</a></li>
+          <li class="mb-2 mb-0--md fs-20 font-middle">Мост к успеху вашего бизнеса</li>
         </ul>
       </div>
-      <div class="col-100 col-md-50 content-right"></div>
+      <div class="col-100 col-md-50 info-contentright">
+        <ul>
+          <li><a href="">Скачать презентацию</a></li>
+          <li><a href="/pages/privacy/" target="_blank">Политика конфиденциальности</a></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
@@ -59,8 +60,8 @@
           <!-- Form title -->
           <h2 class="h1-inner deco-line lh-1 color-black">Начать проект</h2>
           <!-- The form -->
-          <?php if (file_exists($root . "/template/forms/mainformapp.php")): ?>
-          <?php require_once $root . '/template/forms/mainformapp.php';?>
+          <?php if (file_exists($root . "/template/forms/mainform.php")): ?>
+          <?php require_once $root . '/template/forms/mainform.php';?>
           <?php endif;?>
           <!-- End Form -->
         </div>
@@ -68,6 +69,10 @@
     </div>
   </div>
 </div>
+
+<?php if (file_exists($root . "/template/forms/cookiebanner.php")): ?>
+<?php require_once $root . '/template/forms/cookiebanner.php';?>
+<?php endif;?>
 
 <script type="module" crossorigin src="/assets/scripts/main.js"></script>
 

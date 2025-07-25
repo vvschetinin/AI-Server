@@ -29,8 +29,11 @@
     </ul>
     <!-- End Form fields -->
     <div class="checkbox-container flex">
-      <input type="checkbox" name="formcheck" id="form-checkbox" value="">
-      <label for="form-checkbox">Я даю согласие на обработку предоставленных данных</label>
+      <input type="checkbox" name="formcheck" id="form-checkbox" value="" />
+      <div class="label">
+        <label for="form-checkbox">Я согласен(на) на обработку персональных данных и принимаю условия</label>
+        <a href="/privacy/" target="_blank">Политики конфиденциальности</a>
+      </div>
     </div>
   </div>
   <div class="form-footer mb-2">
