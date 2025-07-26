@@ -28,7 +28,7 @@
       <div class="col-100 col-md-50 info-contentright">
         <ul>
           <li><a href="">Скачать презентацию</a></li>
-          <li><a href="/pages/privacy/" target="_blank">Политика конфиденциальности</a></li>
+          <li><a href="/privacy/" target="_blank">Политика конфиденциальности</a></li>
         </ul>
       </div>
     </div>
