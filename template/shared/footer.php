@@ -19,16 +19,16 @@
         <?php endif; ?>
         <ul class="footer-address">
           <li>Московская область</li>
-          <li>г. Ивантеевка</li>
+          <li class="mb-2">г. Ивантеевка</li>
           <li class="visible hidden-md"><a href="tel:+79260522029">+7 (926) 052-20-29</a></li>
-          <li class="visible hidden-md"><a href="mailto:info@vschetinin.ru">info@vschetinin.ru</a></li>
-          <li class="mb-2 mb-0--md fs-20 font-middle">Мост к успеху вашего бизнеса</li>
+          <li class="visible hidden-md mb-2"><a href="mailto:info@vschetinin.ru">info@vschetinin.ru</a></li>
+          <li class="fs-20 font-middle">Мост к успеху вашего бизнеса</li>
+          <li><a href="#" onclick="return false;">Скачать презентацию</a></li>
         </ul>
       </div>
       <div class="col-100 col-md-50 info-contentright">
         <ul>
-          <li><a href="">Скачать презентацию</a></li>
-          <li><a href="/privacy/" target="_blank">Политика конфиденциальности</a></li>
+          <li class="mt-2"><a href="/pages/privacy/" target="_blank">Политика конфиденциальности</a></li>
         </ul>
       </div>
     </div>
