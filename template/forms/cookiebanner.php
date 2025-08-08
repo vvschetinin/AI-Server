@@ -1,5 +1,5 @@
 <div class="cookie-banner is-hidden" id="cookie-banner">
-  <div class="container--middle content-wrap">
+  <div class="content-wrap">
     <p class="banner-text">
       Мы используем файлы
       <a href="/pages/privacy/" target="_blank">cookie</a>
