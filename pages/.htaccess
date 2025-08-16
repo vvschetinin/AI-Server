@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Блокируем прямой доступ
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^.*$ - [F]
