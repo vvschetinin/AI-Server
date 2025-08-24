@@ -7,16 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Подключаем автозагрузчик Composer
 require 'vendor/autoload.php';
 
-// Загружаем переменные окружения из .env файла
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-// Функция для проверки наличия ссылок в тексте
 function containsLink($string) {
-  // Регулярное выражение для поиска URL-адресов (http, https, ftp, www)
   $pattern = '/\b(?:https?:\/\/|www\.|[a-zA-Z0-9][a-zA-Z0-9\-]{0,61}[a-zA-Z0-9]?\.)+[a-zA-Z]{2,}(?:\/[^\s]*)?\b/i';
   return preg_match($pattern, $string);
 }
@@ -24,7 +20,7 @@ function containsLink($string) {
 $mail = new PHPMailer(true);
 
 try {
-  // Настройки SMTP из переменных окружения
+  // Настройки SMTP из .env
   $mail->isSMTP();
   $mail->Host       = $_ENV['SMTP_HOST'];
   $mail->SMTPAuth   = true;
@@ -40,38 +36,62 @@ try {
   // --- НАЧАЛО ОСНОВНОЙ ЛОГИКИ ---
 
   session_start();
-
-  // Получение и базовая проверка данных
   $data = $_POST;
 
   if (empty($data)) {
-      http_response_code(400); // Bad Request
+      http_response_code(400);
       die("Ошибка: Нет данных для отправки.");
   }
 
-  // Проверка на наличие honeypot в сессии
   if (!isset($_SESSION['honeypots'])) {
     die("Ошибка: неверный запрос");
   }
 
   $honeypots = $_SESSION['honeypots'];
 
-  // Проверяем каждое honeypot-поле
   foreach ($honeypots as $fieldName) {
     if (!empty($data[$fieldName])) {
         die("Подозрение на спам. Форма заблокирована.");
     }
   }
-  // Проверка поля 'name' на наличие ссылок
-  if (isset($data['name']) && containsLink($data['name'])) {
-  // Если найдена ссылка, прерываем выполнение скрипта
-  die("Отправка ссылок запрещена.");
+
+  // --- НАЧАЛО: ВАЛИДАЦИЯ ДЛИНЫ ПОЛЕЙ ---
+  $errors = [];
+
+  // Проверка поля 'name'
+  if (isset($data['name'])) {
+      $nameLength = mb_strlen(trim($data['name']));
+      if ($nameLength < 3 || $nameLength > 20) {
+          $errors[] = "Поле 'Имя' должно содержать от 3 до 20 символов.";
+      }
+  } else {
+      $errors[] = "Поле 'Имя' обязательно для заполнения.";
   }
 
-  // Проверка поля 'message' на наличие ссылок
+  // Проверка поля 'message'
+  if (isset($data['message'])) {
+      $messageLength = mb_strlen(trim($data['message']));
+      if ($messageLength < 3 || $messageLength > 500) {
+          $errors[] = "Поле 'Требуемые работы' должно содержать от 3 до 500 символов.";
+      }
+  } else {
+      $errors[] = "Поле 'Требуемые работы' обязательно для заполнения.";
+  }
+
+  // Если есть ошибки, прерываем выполнение
+  if (!empty($errors)) {
+      // В будущем мы заменим этот die() на красивый JSON-ответ
+      http_response_code(400); // Bad Request
+      die("Ошибка валидации: " . implode("<br>", $errors));
+  }
+  // --- КОНЕЦ: ВАЛИДАЦИЯ ДЛИНЫ ПОЛЕЙ ---
+
+  // Проверка полей на наличие ссылок
+  if (isset($data['name']) && containsLink($data['name'])) {
+    die("Отправка ссылок запрещена.");
+  }
   if (isset($data['message']) && containsLink($data['message'])) {
-  // Если найдена ссылка, прерываем выполнение скрипта
-  die("Отправка ссылок запрещена.");
+    die("Отправка ссылок запрещена.");
   }
 
   // Очистка honeypot-полей из данных
@@ -87,20 +107,17 @@ try {
     <p><strong>Имя:</strong> ' . htmlspecialchars($data['name']) . '</p>
     <p><strong>Телефон:</strong> ' . htmlspecialchars($data['phone']) . '</p>
     <p><strong>Email:</strong> ' . htmlspecialchars($data['email']) . '</p>
-    <p><strong>Сообщение:</strong><br>' . nl2br(htmlspecialchars($data['message'])) . '</p>
+    <p><strong>Требуемые работы:</strong><br>' . nl2br(htmlspecialchars($data['message'])) . '</p>
     <p><strong>Formcheck:</strong> ' . htmlspecialchars($data['formcheck']) . ' Yes</p>
   ';
 
-  // Для AltBody также используем очищенные данные
   $mail->AltBody = 'Цель пользователя: ' . htmlspecialchars($data['subject']) . "\n" .
                    'Имя: ' . htmlspecialchars($data['name']) . "\n" .
                    'Телефон: ' . htmlspecialchars($data['phone']) . "\n" .
                    'Email: ' . htmlspecialchars($data['email']) . "\n" .
-                   'Сообщение: ' . htmlspecialchars($data['message']) . "\n" .
-                   'Formcheck: ' . htmlspecialchars($data['formcheck']);
+                   'Требуемые работы: ' . htmlspecialchars($data['message']);
 
-  // Отправляем письмо
-  $mail->SMTPDebug = 0; // Рекомендуется установить в 0 на рабочем сайте
+  $mail->SMTPDebug = 0;
   $mail->Debugoutput = function($str, $level) {
     file_put_contents(__DIR__ . '/mail_error.log', date('Y-m-d H:i:s') . " [Level $level] $str\n", FILE_APPEND);
   };
@@ -109,9 +126,7 @@ try {
   echo "Сообщение отправлено.";
 
 } catch (Exception $e) {
-  // Логируем ошибку для администратора
   error_log("Mailer Error: {$mail->ErrorInfo}");
-  // Выводим общее сообщение для пользователя
   echo "Не удалось отправить сообщение. Пожалуйста, попробуйте еще раз позже.";
 }
 ?>
