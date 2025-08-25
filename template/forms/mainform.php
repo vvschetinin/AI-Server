@@ -6,15 +6,8 @@
     <ul class="form-fields">
       <li>
         <div class="input-container">
-          <input
-            name="name"
-            type="text"
-            value=""
-            class="large"
-            required
-            placeholder="Ваше имя *"
-            minlength="3"
-            maxlength="20">
+          <input name="name" type="text" value="" class="large" required placeholder="Ваше имя *" minlength="3"
+            maxlength="25">
         </div>
       </li>
       <li>
@@ -30,14 +23,8 @@
       </li>
       <li>
         <div class="input-container area-container">
-          <textarea
-            name="message"
-            id="message-contact"
-            rows="7"
-            required
-            placeholder="Краткое описание проекта / работ *"
-            minlength="3"
-            maxlength="500"></textarea>
+          <textarea name="message" id="message-contact" rows="7" required
+            placeholder="Краткое описание проекта / работ *" minlength="3" maxlength="500"></textarea>
         </div>
       </li>
     </ul>
