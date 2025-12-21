@@ -1,0 +1,45 @@
+# Включаем модуль перезаписи
+RewriteEngine On
+RewriteBase /
+
+# Исключаем реальные файлы и папки из перезаписи
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Добавляем слэш в конце URL, если его нет
+RewriteCond %{REQUEST_URI} !^/pages/ [NC]
+RewriteCond %{REQUEST_URI} !(.*)/$
+RewriteRule ^(.*)$ http://%{HTTP_HOST}/$1/ [R=301,L]
+
+# Перезаписываем /about/ → /pages/about/index.php
+RewriteRule ^(.*)/$ /pages/$1/index.php [L]
+
+ErrorDocument 404 /err404/
+
+# Кэширование статики (видео, изображения и др.)
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Видео
+  ExpiresByType video/mp4 "access plus 1 year"
+  ExpiresByType video/webm "access plus 1 year"
+  ExpiresByType video/ogg "access plus 1 year"
+
+  # Изображения
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/gif "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+
+  # Скрипты и стили
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# Заголовки Cache-Control для видео
+<FilesMatch "\.(mp4|webm|ogg)$">
+  Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+

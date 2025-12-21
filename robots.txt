@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /blog/
+Allow: /
+
+Sitemap: https://vschetinin.ru/sitemap.xml
