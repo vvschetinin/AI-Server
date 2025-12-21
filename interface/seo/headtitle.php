@@ -56,42 +56,45 @@
 
 <?php elseif ($_SERVER["REQUEST_URI"] == '/pages/faq/'): ?>
 
-  <title>Частые вопросы: AI для бизнеса, разработка чат-ботов и сайтов | FAQ Владлен Щетинин</title>
-  <meta name="description" content="Ответы на популярные вопросы: сколько стоит разработка чат-бота, как работает AI в бизнесе, сроки создания сайтов и этапы сотрудничества. Узнайте детали перед заказом." />
-  <meta name="keywords" content="FAQ разработка сайтов, вопросы по чат-ботам, стоимость AI решений, этапы веб-разработки, поддержка сайтов, Владлен Щетинин вопросы" />
+  <title>FAQ: вопросы по разработке сайтов и AI в Москве и МО</title>
+  <meta name="description" content="Часто задаваемые вопросы о стоимости разработки сайтов, этапах работ, AI-чат-ботах для Telegram и SEO. Консультация бесплатно." />
   <meta name="author" content="Владлен Щетинин" />
-  <meta property="og:title" content="Ответы на вопросы по веб-разработке и AI-инструментам" />
-  <meta property="og:description" content="Разбираем популярные вопросы клиентов: от стоимости разработки до технической поддержки AI-решений." />
-  <meta property="og:type" content="article" />
+  <meta property="og:title" content="FAQ: разработка сайтов и AI в Москве и МО | Владлен Щетинин" />
+  <meta property="og:description" content="Ответы на вопросы о разработке сайтов под ключ, внедрении AI-ботов, SEO и стоимости услуг в Москве и МО. Опытный full-stack разработчик Владлен Щетинин." />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vschetinin.ru/pages/faq/" />
   <meta property="og:site_name" content="Сайт Владлена Щетинина" />
-  <meta property="og:image" content="https://vschetinin.ru/assets/img/faq-share.jpg" />
+  <meta property="og:image" content="https://vschetinin.ru/assets/img/share-faq.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:locale" content="ru_RU" />
 
 <?php elseif ($_SERVER["REQUEST_URI"] == '/pages/blog/'): ?>
 
-  <title>Блог о веб-разработке и AI-технологиях | Экспертные статьи Владлена Щетинина</title>
-  <meta name="description" content="База знаний для бизнеса: как внедрить AI, тренды веб-разработки 2025, секреты SEO и автоматизация продаж. Читайте практические инструкции и кейсы." />
-  <meta name="keywords" content="блог веб-разработка, AI для бизнеса, тренды SEO 2025, внедрение нейросетей, Владлен Щетинин статьи, автоматизация бизнес-процессов" />
+  <title>Блог о веб-разработке, AI и SEO-продвижении | Владлен Щетинин</title>
+  <meta name="description" content="Экспертный блог о цифровой трансформации бизнеса: внедрение нейросетей (AI), разработка чат-ботов, секреты SEO и тренды веб-разработки 2025. Полезные гайды от Владлена Щетинина." />
   <meta name="author" content="Владлен Щетинин" />
-  <meta property="og:title" content="Блог: AI-революция в бизнесе и веб-разработке" />
-  <meta property="og:description" content="Инструкции, чек-листы и инсайты: как заставить технологии работать на вашу прибыль. Подпишитесь на обновления." />
+  <meta property="og:title" content="Блог о веб-разработке, AI и SEO-продвижении | Владлен Щетинин" />
+  <meta property="og:description" content="Статьи и руководства по автоматизации бизнеса, созданию сайтов и маркетингу. Узнайте, как AI и грамотная разработка экономят бюджет и повышают продажи." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vschetinin.ru/pages/blog/" />
   <meta property="og:site_name" content="Сайт Владлена Щетинина" />
-  <meta property="og:image" content="https://vschetinin.ru/assets/img/blog-cover.jpg" /> <!-- Рекомендую сделать обложку с надписью "AI Trends 2025" -->
+  <meta property="og:image" content="https://vschetinin.ru/assets/img/share-blog.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:locale" content="ru_RU" />
 
 <?php elseif ($_SERVER["REQUEST_URI"] == '/pages/contacts/'): ?>
 
-  <title>Контакты Владлена Щетинина | Заказать сайт и внедрение AI Москва и МО</title>
-  <meta name="description" content="Свяжитесь со мной для обсуждения проекта: +7 (926) 052-20-29, info@vschetinin.ru. Разработка сайтов, чат-ботов и автоматизация бизнеса. Работаю по всей России." />
-  <meta name="keywords" content="Контакты веб-разработчика. Разработка сайтов, умных чат-ботов и автоматизация процессов в Москве и Московской области." />
+  <title>Контакты Владлена Щетинина: заказать сайт, чат-бота, AI</title>
+  <meta name="description" content="Свяжитесь с разработчиком для создания сайта, внедрения AI и автоматизации бизнеса. Телефон: +7 (926) 052-20-29, Telegram: @VladlenGross. Ивантеевка, Москва и МО." />
   <meta name="author" content="Владлен Щетинин" />
-  <meta property="og:title" content="Обсудить проект с Владленом Щетининым" />
-  <meta property="og:description" content="Готовы внедрить AI или обновить сайт? Напишите мне в Telegram или позвоните. Бесплатная первичная консультация." />
+  <meta property="og:title" content="Контакты Владлена Щетинина: заказать сайт, чат-бота, AI" />
+  <meta property="og:description" content="Обсудим ваш проект? Разработка сайтов, внедрение нейросетей и чат-ботов для бизнеса. Контакты специалиста в Москве и области." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vschetinin.ru/pages/contacts/" />
   <meta property="og:site_name" content="Сайт Владлена Щетинина" />
-  <meta property="og:image" content="https://vschetinin.ru/assets/img/contacts-share.jpg" />
+  <meta property="og:image" content="https://vschetinin.ru/assets/img/share-contacts.webp" />
+  <meta property="og:image:type" content="image/webp" />
+  <meta property="og:locale" content="ru_RU" />
 
 <?php elseif ($_SERVER["REQUEST_URI"] == '/pages/services/content/'): ?>
 
