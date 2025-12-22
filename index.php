@@ -6,10 +6,6 @@
 
 <head>
   <!-- Yandex.Metrika counter -->
-  <?php if (file_exists($root . "/interface/seo/metrics.php")): ?>
-    <?php require_once $root . '/interface/seo/metrics.php'; ?>
-  <?php endif; ?>
-  <!-- End Yandex.Metrika counter -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!-- Add Icons -->
