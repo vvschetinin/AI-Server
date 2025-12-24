@@ -26,9 +26,11 @@
     <div><img src="https://mc.yandex.ru/watch/65009764" style="position:absolute; left:-9999px;" alt=""></div>
   </noscript>
   <div class="site-wrapper">
-    <?php if (file_exists($root . "/template/shared/header-inner.php")): ?>
-      <?php require_once $root . '/template/shared/header-inner.php'; ?>
+    <!-- Подключение Header -->
+    <?php if (file_exists($root . "/template/shared/header.php")): ?>
+      <?php require_once $root . '/template/shared/header.php'; ?>
     <?php endif; ?>
+    <!-- End Подключение Header -->
     <main class="site-content">
 
       <section class="section-inner bg-dark">

@@ -29,8 +29,10 @@
     <?php if (file_exists($root . "/template/shared/header.php")): ?>
       <?php require_once $root . '/template/shared/header.php'; ?>
     <?php endif; ?>
-    <!-- Подключение Header -->
+    <!-- End Подключение Header -->
     <main class="site-content">
+
+
       <!-- Секция Hero -->
       <section class="hero hero--large bg-hero">
         <figure class="hero-media bg--cover" style="background-image: url(/assets/images/hero/main-hero.webp)" role="img"

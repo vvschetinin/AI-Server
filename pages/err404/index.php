@@ -1,4 +1,4 @@
-<?header('Content-type: text/html; charset=utf-8');?>
+<? header('Content-type: text/html; charset=utf-8'); ?>
 <?php $root = $_SERVER['DOCUMENT_ROOT']; ?>
 <?php require_once $root . '/interface/init.php'; ?>
 <!DOCTYPE html>
@@ -30,51 +30,51 @@
   <meta property="og:locale" content="ru_RU">
   <!-- Add Структурированных данных -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Владлен Щетинин - AI-решения и автоматизация бизнеса",
-    "description": "Профессиональные AI-инструменты, чат-боты и автоматизация бизнес-процессов в Москве и Московской области. Консультации и разработка для вашего бизнеса.",
-    "image": "https://vschetinin.ru/assets/images/ogimage/og-err404-image.jpg",
-    "url": "https://vschetinin.ru/",
-    "telephone": "+79260522029",
-    "email": "info@vschetinin.ru",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Ивантеевка",
-      "addressRegion": "Московская область",
-      "addressCountry": "RU"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 55.9711,
-      "longitude": 37.9209
-    },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-      ],
-      "opens": "09:00",
-      "closes": "18:00"
-    }],
-    "sameAs": [
-      "https://t.me/VladlenGross"
-    ],
-    "contactPoint": {
-      "@type": "ContactPoint",
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Владлен Щетинин - AI-решения и автоматизация бизнеса",
+      "description": "Профессиональные AI-инструменты, чат-боты и автоматизация бизнес-процессов в Москве и Московской области. Консультации и разработка для вашего бизнеса.",
+      "image": "https://vschetinin.ru/assets/images/ogimage/og-err404-image.jpg",
+      "url": "https://vschetinin.ru/",
       "telephone": "+79260522029",
-      "contactType": "customer service",
       "email": "info@vschetinin.ru",
-      "areaServed": "RU",
-      "availableLanguage": "Russian"
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ивантеевка",
+        "addressRegion": "Московская область",
+        "addressCountry": "RU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 55.9711,
+        "longitude": 37.9209
+      },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }],
+      "sameAs": [
+        "https://t.me/VladlenGross"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+79260522029",
+        "contactType": "customer service",
+        "email": "info@vschetinin.ru",
+        "areaServed": "RU",
+        "availableLanguage": "Russian"
+      }
     }
-  }
   </script>
   <!-- Add Styles -->
   <link rel="stylesheet" crossorigin href="/assets/styles/main.css">
@@ -83,9 +83,11 @@
 
 <body>
   <div class="site-wrapper">
-    <?php if (file_exists($root . "/template/shared/header-inner.php")): ?>
-    <?php require_once $root . '/template/shared/header-inner.php';?>
-    <?php endif;?>
+    <!-- Подключение Header -->
+    <?php if (file_exists($root . "/template/shared/header.php")): ?>
+      <?php require_once $root . '/template/shared/header.php'; ?>
+    <?php endif; ?>
+    <!-- End Подключение Header -->
     <main class="site-content">
 
       <section class="hero hero--error">
@@ -198,5 +200,5 @@
       <!-- ================================================== -->
 
       <?php if (file_exists($root . "/template/shared/footer.php")): ?>
-      <?php require_once $root . '/template/shared/footer.php';?>
-      <?php endif;?>
+        <?php require_once $root . '/template/shared/footer.php'; ?>
+      <?php endif; ?>
